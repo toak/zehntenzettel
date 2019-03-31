@@ -1,0 +1,38 @@
+#page {
+  margin: 20px auto;
+  max-width:800px; 
+}
+.paper {
+  background-color: #ddff99; 
+  padding: 20px;
+}
+#result {
+  padding: 20px;
+}
+table th, table td {
+  padding: 2px 5px;
+}
+td.bleft {
+  border-left:1px solid #000;
+}
+td.bspace {
+  padding-bottom: 50px;
+}
+.bold {
+  font-weight: bold;
+}
+input {
+  border: 0;
+  background-color: #ddff99;
+  border-bottom: 1px dotted #000; 
+}
+input.euro {
+  text-align: right;
+  width: 50px;
+}
+.center {
+  text-align:center;
+}
+.right {
+  text-align:right;
+}

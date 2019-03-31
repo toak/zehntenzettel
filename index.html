@@ -1,0 +1,288 @@
+<!doctype html>
+<html class="no-js" lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Zehntenzettel - Ausfüllhilfe Online-Überweisung</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="ui/css/normalize.css">
+		<link rel="stylesheet" href="ui/css/main.css">
+		<link rel="stylesheet" href="ui/css/tithe.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<script type="text/javascript"> <!--
+			function UnCryptMailto( s )
+			{
+				var n = 0;
+				var r = "";
+				for( var i = 0; i < s.length; i++)
+				{
+					n = s.charCodeAt( i );
+					if( n >= 8364 )
+					{
+						n = 128;
+					}
+					r += String.fromCharCode( n - 1 );
+				}
+				return r;
+			}
+
+			function linkTo_UnCryptMailto( s )
+			{
+				location.href=UnCryptMailto( s );
+			}
+		// --> </script>
+	</head>
+	<body id="body" ng-app="tithe" ng-controller="titheController">
+		<!--[if lt IE 8]>
+			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+		<div id="page" class="row">
+			<div class="col-md-6">
+				<h3 class="center bold" style="margin-top:0">Ausfüllhilfe Online-Überweisung</h3>
+				<p style="font-size:10pt">
+					Hier kannst du dir durch Ausfüllen des Zehntenzettels automatisch den Betrag und den Verwendungszweck der Überweisung erstellen lassen.
+					So lässt sich dann deine Überweisung genau den verschiedenen Verwendungen zuordnen.
+				</p>
+				<p style="font-size:10pt">
+					Wichtig: Die eingegebenen Daten werden nirgends gespeichert, sie dienen rein zur Erstellung des Verwendungszwecks. 
+					Alle Berechnungen passieren lokal in deinem Browser, es wird nichts im Internet zu einem Server übertragen.
+					Du kannst das gerne ausprobieren, indem du nach dem Laden der Seite deine Netzwerkverbindung trennst, alles funktioniert weiterhin.
+				</p>
+				<p style="font-size:10pt" class="bold">
+					Nach dem Ausfüllen werden hier alle notwendigen Überweisungsdaten angezeigt, 
+					die du ganz einfach mit Kopieren & Einfügen in das Online-Überweisungsformular übernehmen kannst:
+				</p>
+				<table style="width:100%;">
+					<tr>
+						<td>Ortsgemeinde: </td>
+						<td>
+							<select ng-options="option.name for option in accoutdata.availableOptions track by option.id"
+											ng-model="accoutdata.selectedOption"></select>
+						</td>
+					</tr>
+					<tr ng-if="!(accoutdata.selectedOption.id=='empty')">
+						<td>Emfänger:</td>
+						<td>Kirche der S. T. Adventisten</td>
+					</tr>
+					<tr ng-if="!(accoutdata.selectedOption.id=='empty')">
+						<td>IBAN:</td>
+						<td>{{accoutdata.selectedOption.id}}</td>
+					</tr>
+					<tr>
+						<td>Betrag: <span style="cursor:pointer;" onclick="alert('Die Summe wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt.');">�</span></td>
+						<td>
+							€ <input type="text" readonly="1" value="{{sum()}}" class="euro" style="background-color:#fff" />
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top">
+							Verwendungszweck: 
+							<span style="cursor:pointer;" onclick="alert('Der Verwendungszweck wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt.');">�</span>
+						</td>
+						<td><textarea style="width:100%;height:70px;" readonly>{{subject()}}</textarea></td>
+					</tr>
+				</table>
+				<br />
+				<div class="paper">
+					<h4 style="margin-top:0" class="center bold">
+						Empfohlener Gabenschlüssel für geplantes Geben:
+					</h4>
+					<br />
+					<table style="margin: 0 auto;">
+						<tr>
+							<td>II.</td>
+							<td>Heimat:</td>
+							<td class="right">30%</td>
+							<td class="right bold">{{ptbl2()}}</td>
+						</tr>
+						<tr>
+							<td>III.</td>
+							<td>Weltmission:</td>
+							<td class="right">20%</td>
+							<td class="right bold">{{ptbl3()}}</td>
+						</tr>
+						<tr>
+							<td>IV.</td>
+							<td>Lokale Gemeinde:</td>
+							<td class="right">50%</td>
+							<td class="right bold">{{ptbl4()}}</td>
+						</tr>
+						<tr ng-show="ptbl4()">
+							<td colspan="3" class="right bold">Dein Schlüssel</td>
+							<td class="center bold">&#x2934;</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<br />
+			<div class="col-md-6 paper">
+				<h4 class="center bold">
+					Maleachi 3,10
+				</h4>
+				<table style="width:100%;">
+					<tr>
+						<td class="bold right">I.</td>
+						<td class="bold">Zehnten</td>
+						<td></td>
+						<td class="right">€ <input type="text" ng-model="z" size="4" class="euro" valid-number></td>
+					</tr>
+					<tr>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="bold right">II.</td>
+						<td><span class="bold">Heimat</span> - Projekte Österreich</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Evangelisation</td>
+						<td class="right"><input type="text" ng-model="ev" ng-keyup="proesum" size="4" class="euro"></td>
+						<td class="bleft"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Kapellenfonds</td>
+						<td class="right"><input type="text" ng-model="kf" ng-keyup="proesum" size="4" class="euro"></td>
+						<td class="bleft"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Schulopfer Bogi</td>
+						<td class="right"><input type="text" ng-model="scho" ng-keyup="proesum" size="4" class="euro"></td>
+						<td class="bleft"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Gesundheitsdienst</td>
+						<td class="right"><input type="text" ng-model="llg" ng-keyup="proesum" size="4" class="euro"></td>
+						<td class="bleft right">
+							€ <input type="text" name="proefld" ng-blur="calcproe()" size="4" class="euro" />
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>ADRA</td>
+						<td class="right"><input type="text" ng-model="adra" ng-keyup="proesum" size="4" class="euro"></td>
+						<td class="bleft"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Religiöse Freiheit</td>
+						<td class="right"><input type="text" ng-model="rf" ng-keyup="proesum" size="4" class="euro"></td>
+						<td class="bleft"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Hope Media</td>
+						<td class="right"><input type="text" ng-model="hm" ng-keyup="proesum" size="4" class="euro"></td>
+						<td class="bleft"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="text" ng-model="poe_custom_text"></td>
+						<td class="right"><input type="text" ng-model="poe_custom" ng-keyup="proesum" size="4" class="euro"></td>
+						<td class="bleft"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="bold">Gemeindeschule</td>
+						<td></td>
+						<td class="right">€ <input type="text" ng-model="gems" size="4" class="euro"></td>
+					</tr>
+					<tr>
+						<td></td>
+					</tr>
+					<tr>
+						<td width="1" class="bold right">III.&nbsp;</td>
+						<td class="bold">Weltmission</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Sabbatschulgaben</td>
+						<td></td>
+						<td class="right">€ <input type="text" ng-model="ssg" size="4" class="euro"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>13. Sabbatschulgaben</td>
+						<td></td>
+						<td class="right">€ <input type="text" ng-model="ssg13" size="4" class="euro"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="text" ng-model="wm_custom_text"></td>
+						<td></td>
+						<td class="right">€ <input type="text" ng-model="wm_custom" size="4" class="euro"></td>
+					</tr>
+					<tr>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="bold right">IV.</td>
+						<td class="bold">Lokale Gemeinde</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Alle Gemeindeausgaben</td>
+						<td></td>
+						<td class="right">€ <input type="text" ng-model="gemk" size="4" class="euro"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="text" ng-model="lg_custom1_text"></td>
+						<td></td>
+						<td class="right">€ <input type="text" ng-model="lg_custom1" size="4" class="euro"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="text" ng-model="lg_custom2_text"></td>
+						<td></td>
+						<td class="right">€ <input type="text" ng-model="lg_custom2" size="4" class="euro"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td style="border-top:1px solid #000"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="right" style="border-bottom:5px double #000" onclick="alert('Bitte Posten in die Felder oben eintragen!\nDas ist ein Summenfeld.');">
+							€ <input type="text" readonly="1" value="{{sum()}}" class="euro" />
+						</td>
+					</tr>
+				</table>	
+			</div>
+			<div class="col-md-12" style="padding:25px;">
+				<p class="center">
+					<a href="#">
+						<span class="glyphicon glyphicon-home"></span>
+						by Tobi Ka
+					</a>
+					<span class="separator">&middot;</span>
+					<a href="#">
+						<span class="glyphicon glyphicon-thumbs-up"></span>
+						Like it
+					</a>
+					<span class="separator">&middot;</span>
+					<a href="javascript:linkTo_UnCryptMailto('nbjmup;jogpAupbl/ef');">
+						<span class="glyphicon glyphicon-envelope"></span>
+						info [at] toak [dot] de
+					</a>
+				</p>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+		<script src="ui/js/app.js"></script>
+		<script src="ui/js/controllers.js"></script>
+	</body>
+</html>
