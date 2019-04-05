@@ -1,0 +1,5 @@
+tasks:
+    - command: "npm install express && npm install -g nodemon && nodemon server.js"
+
+ports:
+    - port: 3000
