@@ -1,5 +1,8 @@
 {
   "alias": ["zehntenzettel", "zehntenzettel.cd.toak.de"],
   "version": 2,
-  "name": "zehntenzettel"
+  "name": "zehntenzettel",
+  "routes": [
+    { "src": "/(.*)", "dest": "/#/$1" }
+  ]
 }
