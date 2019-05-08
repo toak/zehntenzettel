@@ -3,6 +3,6 @@
   "version": 2,
   "name": "zehntenzettel",
   "routes": [
-    { "src": "/(.*)", "dest": "/index.html#/$1" }
+    { "src": "/(.*)", "dest": "/" }
   ]
 }
