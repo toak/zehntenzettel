@@ -1,5 +1,5 @@
 angular.module('tithe.controllers', [])
-	.controller('titheController', function($scope, $http) {
+	.controller('titheController', function($scope, $http, $location) {
 		$scope.z = "";
 		$scope.ev = "";
 		$scope.kf = "";
@@ -107,11 +107,14 @@ angular.module('tithe.controllers', [])
 				subt = subt + $scope.lg_custon2_text + " " + $scope.lg_custom2 + ",";
 			return subt;
 		}
+        $scope.weburl = $location.absUrl().split("/").pop();
     function getAccounts() {
 			$http.get('https://raw.githubusercontent.com/toak/zehntenzettel-conf/master/accounts.json').
 				success(function(data) {
         for (var key in data) {
           $scope.accoutdata.availableOptions.push({id: data[key], name: key});
+          if ($scope.weburl==key)
+            $scope.accoutdata.selectedOption = {id: data[key], name: key};
         }
 				});
 		}
