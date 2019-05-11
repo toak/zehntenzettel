@@ -40,23 +40,26 @@
 		<![endif]-->
 		<div id="page" class="row">
 			<div class="col-md-6">
-				<h3 class="center bold" style="margin-top:0">Ausfüllhilfe Online-Überweisung</h3>
-				<p style="font-size:10pt">
+				<h3 class="center bold" style="margin-top:34px; margin-bottom:35px">Ausfüllhilfe Online-Überweisung</h3>
+				<p>
 					Hier kannst du dir durch Ausfüllen des Zehntenzettels automatisch den Betrag und den Verwendungszweck der Überweisung erstellen lassen.
 					So lässt sich dann deine Überweisung genau den verschiedenen Verwendungen zuordnen.
 				</p>
-				<p style="font-size:10pt">
-					Wichtig: Die eingegebenen Daten werden nirgends gespeichert, sie dienen rein zur Erstellung des Verwendungszwecks. 
+				<p>
+                    Ist dieses Formular sicher? <a style="cursor:pointer;" ng-click="secureInfo = !secureInfo">Hier erfährst du mehr!</a>
+				</p>
+                <p ng-show="secureInfo">
+                    Wichtig: Die eingegebenen Daten werden nirgends gespeichert, sie dienen rein zur Erstellung des Verwendungszwecks.
 					Alle Berechnungen passieren lokal in deinem Browser, es wird nichts im Internet zu einem Server übertragen.
 					Du kannst das gerne ausprobieren, indem du nach dem Laden der Seite deine Netzwerkverbindung trennst, alles funktioniert weiterhin.
 				</p>
-				<p style="font-size:10pt" class="bold">
+				<p class="bold">
 					Nach dem Ausfüllen werden hier alle notwendigen Überweisungsdaten angezeigt.
-					Du kannst dann ganz einfach den Bereich (z.B. Verwendungszweck, IBAN), welchen du in das Online-Überweisungsformular übernehmen möchtest markieren und mit Kopieren & Einfügen übertragen.
+					Du kannst dann ganz einfach den Bereich (e.g. IBAN, Verwendungszweck), welchen du in das Online-Überweisungsformular übernehmen möchtest markieren und mit Kopieren & Einfügen übertragen.
 				</p>
 				<table style="width:100%;">
 					<tr>
-						<td>Ortsgemeinde: </td>
+						<td>Ortsgemeinde: <span style="cursor:pointer;" onclick="alert('Du kommst direkt zu den Kontodaten deiner Gemeinde, wenn du sie in das Adressfeld des Browsers angibst: e.g. \nhttps://geben.adventisten.at/Hallein');">&#9432;</span></td>
 						<td>
 							<select ng-options="option.name for option in accoutdata.availableOptions track by option.id"
 											ng-model="accoutdata.selectedOption"></select>
@@ -71,17 +74,17 @@
 						<td>{{accoutdata.selectedOption.id}}</td>
 					</tr>
 					<tr>
-						<td>Betrag: <span style="cursor:pointer;" onclick="alert('Die Summe wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt.');">�</span></td>
+						<td>Betrag: <span style="cursor:pointer;" onclick="alert('Die Summe wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt.');">&#9432;</span></td>
 						<td>
 							€ <input type="text" readonly="1" value="{{sum()}}" class="euro" style="background-color:#fff" />
 						</td>
 					</tr>
 					<tr>
 						<td style="vertical-align: top">
-							Verwendungszweck: 
-							<span style="cursor:pointer;" onclick="alert('Der Verwendungszweck wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt.');">�</span>
+							Verwendungszweck:
+							<span style="cursor:pointer;" onclick="alert('Der Verwendungszweck wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt.');">&#9432;</span>
 						</td>
-						<td><textarea style="width:100%;height:70px;" readonly>{{subject()}}</textarea></td>
+						<td><textarea style="width:100%;height:70px;" readonly="1">{{subject()}}</textarea></td>
 					</tr>
 				</table>
 				<br />
@@ -93,7 +96,7 @@
 					<table style="margin: 0 auto;">
 						<tr>
 							<td>II.</td>
-							<td>Heimat:</td>
+							<td>Österreich:</td>
 							<td class="right">30%</td>
 							<td class="right bold">{{ptbl2()}}</td>
 						</tr>
@@ -109,7 +112,7 @@
 							<td class="right">50%</td>
 							<td class="right bold">{{ptbl4()}}</td>
 						</tr>
-						<tr ng-show="ptbl4()">
+						<tr ng-show="ptbl2() || ptbl3() || ptbl4()">
 							<td colspan="3" class="right bold">Dein Schlüssel</td>
 							<td class="center bold">&#x2934;</td>
 						</tr>
@@ -129,75 +132,69 @@
 						<td class="right">€ <input type="text" ng-model="z" size="4" class="euro" valid-number></td>
 					</tr>
 					<tr>
-						<td></td>
+						<td style="height: 10px"></td>
 					</tr>
 					<tr>
 						<td class="bold right">II.</td>
-						<td><span class="bold">Heimat</span> - Projekte Österreich</td>
+						<td><span class="bold">Österreich</td>
 						<td></td>
 						<td></td>
 					</tr>
 					<tr>
 						<td></td>
+						<td>Projekte allgemein</td>
+						<td class="right"><input type="text" ng-model="poe" ng-keyup="poesum" size="4" class="euro"></td>
+						<td class="bleft"></td>
+					</tr>
+                    <tr>
+						<td></td>
 						<td>Evangelisation</td>
-						<td class="right"><input type="text" ng-model="ev" ng-keyup="proesum" size="4" class="euro"></td>
+						<td class="right"><input type="text" ng-model="ev" ng-keyup="poesum" size="4" class="euro"></td>
 						<td class="bleft"></td>
 					</tr>
 					<tr>
 						<td></td>
 						<td>Kapellenfonds</td>
-						<td class="right"><input type="text" ng-model="kf" ng-keyup="proesum" size="4" class="euro"></td>
+						<td class="right"><input type="text" ng-model="kf" ng-keyup="poesum" size="4" class="euro"></td>
 						<td class="bleft"></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td>Schulopfer Bogi</td>
-						<td class="right"><input type="text" ng-model="scho" ng-keyup="proesum" size="4" class="euro"></td>
-						<td class="bleft"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>Gesundheitsdienst</td>
-						<td class="right"><input type="text" ng-model="llg" ng-keyup="proesum" size="4" class="euro"></td>
+						<td>Schule Bogenhofen</td>
+						<td class="right"><input type="text" ng-model="scho" ng-keyup="poesum" size="4" class="euro"></td>
 						<td class="bleft right">
-							€ <input type="text" name="proefld" ng-blur="calcproe()" size="4" class="euro" />
+							€ <input type="text" name="poefld" ng-blur="calcpoe()" size="4" class="euro" />
 						</td>
 					</tr>
 					<tr>
 						<td></td>
-						<td>ADRA</td>
-						<td class="right"><input type="text" ng-model="adra" ng-keyup="proesum" size="4" class="euro"></td>
+						<td>Gemeindeschule</td>
+						<td class="right"><input type="text" ng-model="gems" ng-keyup="poesum" size="4" class="euro"></td>
 						<td class="bleft"></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td>Religiöse Freiheit</td>
-						<td class="right"><input type="text" ng-model="rf" ng-keyup="proesum" size="4" class="euro"></td>
+						<td>Gesundheitsdienste</td>
+						<td class="right"><input type="text" ng-model="llg" ng-keyup="poesum" size="4" class="euro"></td>
 						<td class="bleft"></td>
 					</tr>
 					<tr>
 						<td></td>
 						<td>Hope Media</td>
-						<td class="right"><input type="text" ng-model="hm" ng-keyup="proesum" size="4" class="euro"></td>
+						<td class="right"><input type="text" ng-model="hm" ng-keyup="poesum" size="4" class="euro"></td>
 						<td class="bleft"></td>
 					</tr>
 					<tr>
 						<td></td>
 						<td><input type="text" ng-model="poe_custom_text"></td>
-						<td class="right"><input type="text" ng-model="poe_custom" ng-keyup="proesum" size="4" class="euro"></td>
+						<td class="right"><input type="text" ng-model="poe_custom" ng-keyup="poesum" size="4" class="euro"></td>
 						<td class="bleft"></td>
 					</tr>
 					<tr>
-						<td></td>
-						<td class="bold">Gemeindeschule</td>
-						<td></td>
-						<td class="right">€ <input type="text" ng-model="gems" size="4" class="euro"></td>
+						<td style="height: 10px"></td>
 					</tr>
 					<tr>
-						<td></td>
-					</tr>
-					<tr>
-						<td width="1" class="bold right">III.&nbsp;</td>
+						<td width="1" class="bold right">III.</td>
 						<td class="bold">Weltmission</td>
 						<td></td>
 						<td></td>
@@ -221,7 +218,7 @@
 						<td class="right">€ <input type="text" ng-model="wm_custom" size="4" class="euro"></td>
 					</tr>
 					<tr>
-						<td></td>
+						<td style="height: 10px"></td>
 					</tr>
 					<tr>
 						<td class="bold right">IV.</td>
@@ -230,7 +227,7 @@
 					</tr>
 					<tr>
 						<td></td>
-						<td>Alle Gemeindeausgaben</td>
+						<td>Gemeinde allgemein</td>
 						<td></td>
 						<td class="right">€ <input type="text" ng-model="gemk" size="4" class="euro"></td>
 					</tr>
@@ -247,20 +244,29 @@
 						<td class="right">€ <input type="text" ng-model="lg_custom2" size="4" class="euro"></td>
 					</tr>
 					<tr>
+						<td style="height: 10px"></td>
+					</tr>
+                    <tr>
+						<td class="bold right">V.</td>
+						<td class="bold">Sondersammlung</td>
 						<td></td>
-						<td></td>
-						<td></td>
-						<td style="border-top:1px solid #000"></td>
+						<td class="right">€ <input type="text" ng-model="sos" size="4" class="euro" valid-number></td>
 					</tr>
 					<tr>
+						<td style="height: 10px"></td>
 						<td></td>
+						<td></td>
+						<td style="border-bottom:1px solid #000"></td>
+					</tr>
+					<tr>
+						<td style="height: 40px"></td>
 						<td></td>
 						<td></td>
 						<td class="right" style="border-bottom:5px double #000" onclick="alert('Bitte Posten in die Felder oben eintragen!\nDas ist ein Summenfeld.');">
 							€ <input type="text" readonly="1" value="{{sum()}}" class="euro" />
 						</td>
 					</tr>
-				</table>	
+				</table>
 			</div>
 			<div class="col-md-12" style="padding:25px;">
 				<p class="center">
