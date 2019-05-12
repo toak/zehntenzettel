@@ -70,7 +70,7 @@ angular.module('tithe.controllers', [])
 			if ($scope.z > 0)
 				subt = subt + "Z " + $scope.z + ",";
 			if ($scope.poe > 0)
-				subt = subt + "POE" + " " + $scope.poe + ",";
+				subt = subt + "POE " + " " + $scope.poe + ",";
 			if ($scope.ev > 0)
 				subt = subt + "EV " + $scope.ev + ",";
 			if ($scope.kf > 0)
@@ -78,7 +78,7 @@ angular.module('tithe.controllers', [])
 			if ($scope.scho > 0)
 				subt = subt + "SCHO " + $scope.scho + ",";
 			if ($scope.gems > 0)
-				subt = subt + "GEMS  " + $scope.gems + ",";
+				subt = subt + "GEMS " + $scope.gems + ",";
 			if ($scope.llg > 0)
 				subt = subt + "LLG " + $scope.llg + ",";
 			if ($scope.hm > 0)
