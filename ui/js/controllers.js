@@ -15,7 +15,6 @@ angular.module('tithe.controllers', [])
 		$scope.gemk = "";
 		$scope.lg_custom1 = "";
 		$scope.lg_custom2 = "";
-		$scope.sos = "";
         $scope.secureInfo = false;
         getAccounts();
         $scope.calcpoe = function() {
@@ -63,7 +62,7 @@ angular.module('tithe.controllers', [])
 			return $scope.bl2()*1 + $scope.bl3()*1 + $scope.bl4()*1;
 		}
 		$scope.sum = function() {
-			return $scope.z*1 + $scope.sumbl234()*1 + $scope.sos*1;
+			return $scope.z*1 + $scope.sumbl234()*1;
 		}
 		$scope.subject = function() {
 			var subt = "";
@@ -97,8 +96,6 @@ angular.module('tithe.controllers', [])
 				subt = subt + $scope.lg_custom1_text + " " + $scope.lg_custom1 + ",";
 			if ($scope.lg_custom2 > 0)
 				subt = subt + $scope.lg_custom2_text + " " + $scope.lg_custom2 + ",";
-            if ($scope.sos > 0)
-				subt = subt + "SOS " + $scope.sos + ",";
             if (subt.length>0)
                 subt = subt.substring(0, subt.length-1);
 			return subt;
