@@ -105,17 +105,18 @@ angular.module('tithe.controllers', [])
 			$http.get('https://raw.githubusercontent.com/toak/zehntenzettel-conf/master/accounts.json').
 				success(function(data) {
                     for (var key in data) {
-                        $scope.accoutdata.availableOptions.push({id: data[key], name: key});
+                        datasplit = data[key].split(',');
+                        $scope.accoutdata.availableOptions.push({id: datasplit[1], name: key, acname: datasplit[0]});
                         if ($scope.weburl==key)
-                            $scope.accoutdata.selectedOption = {id: data[key], name: key};
+                            $scope.accoutdata.selectedOption = {id: datasplit[1], name: key, acname: datasplit[0]};
                     }
                     $scope.accoutdata.availableOptions = $filter('orderBy')($scope.accoutdata.availableOptions, 'name');
-                    $scope.accoutdata.availableOptions.unshift({id: 'empty', name: 'Bitte auswählen'});
+                    $scope.accoutdata.availableOptions.unshift({id: 'empty', name: 'Bitte auswählen', acname: 'Bitte auswählen'});
 				});
 		}
         $scope.accoutdata = {
 			availableOptions: [],
-			selectedOption: {id: 'empty', name: 'bitte auswählen'}
+			selectedOption: {id: 'empty', name: 'Bitte auswählen', acname: 'Bitte auswählen'}
 		};
 		$scope.onlyNumbers = /^\d+$/;
 	}
