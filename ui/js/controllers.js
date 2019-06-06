@@ -116,8 +116,7 @@ angular.module('tithe.controllers', [])
 		}
         $scope.changeLink = function() {
             var link = $scope.accoutdata.selectedOption.name;
-            var path = $location.path();
-            $location.url(path+link);
+            $location.url('/'+link);
         }
         $scope.accoutdata = {
 			availableOptions: [],
