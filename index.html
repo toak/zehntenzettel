@@ -11,7 +11,8 @@
 		<link rel="stylesheet" href="ui/css/tithe.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-		<script type="text/javascript"> <!--
+		<base href="/">
+        <script type="text/javascript"> <!--
 			function UnCryptMailto( s )
 			{
 				var n = 0;
@@ -59,7 +60,7 @@
 						<td>Ortsgemeinde: <span style="cursor:pointer;" onclick="alert('Du kommst direkt zu den Kontodaten deiner Gemeinde, wenn du sie in das Adressfeld des Browsers angibst: e.g. \nhttps://geben.adventisten.at/Hallein');">&#9432;</span></td>
 						<td>
 							<select ng-options="option.name for option in accoutdata.availableOptions track by option.id"
-											ng-model="accoutdata.selectedOption"></select>
+											ng-model="accoutdata.selectedOption" ng-change="changeLink()"></select>
 						</td>
 					</tr>
 					<tr ng-if="!(accoutdata.selectedOption.id=='empty')">

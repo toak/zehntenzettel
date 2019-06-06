@@ -114,6 +114,11 @@ angular.module('tithe.controllers', [])
                     $scope.accoutdata.availableOptions.unshift({id: 'empty', name: 'Bitte auswählen', acname: 'Bitte auswählen'});
 				});
 		}
+        $scope.changeLink = function() {
+            var link = $scope.accoutdata.selectedOption.name;
+            var path = $location.path();
+            $location.url(path+link);
+        }
         $scope.accoutdata = {
 			availableOptions: [],
 			selectedOption: {id: 'empty', name: 'Bitte auswählen', acname: 'Bitte auswählen'}

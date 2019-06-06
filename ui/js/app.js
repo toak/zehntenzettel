@@ -1,13 +1,15 @@
 var app = angular.module('tithe', [
   'tithe.controllers'
-]);
+]).config(['$locationProvider', function($locationProvider) {
+         $locationProvider.html5Mode(true);
+    }]);
 
 app.directive('validNumber', function() {
   return {
     require: '?ngModel',
     link: function(scope, element, attrs, ngModelCtrl) {
       if(!ngModelCtrl) {
-        return; 
+        return;
       }
 
       ngModelCtrl.$parsers.push(function(val) {
