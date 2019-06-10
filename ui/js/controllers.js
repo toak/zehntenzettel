@@ -118,6 +118,16 @@ angular.module('tithe.controllers', [])
             var link = $scope.accoutdata.selectedOption.name;
             $location.url('/'+link);
         }
+        $scope.$watch(function() {
+            return $location.path();
+        }, function(value) {
+            for (var key in $scope.accoutdata.availableOptions) {
+                if (value.substring(1)=="")
+                    $scope.accoutdata.selectedOption = $scope.accoutdata.availableOptions[0];
+                if ($scope.accoutdata.availableOptions[key].name==value.substring(1))
+                    $scope.accoutdata.selectedOption = $scope.accoutdata.availableOptions[key];
+            }
+        });
         $scope.accoutdata = {
 			availableOptions: [],
 			selectedOption: {id: 'empty', name: 'Bitte auswählen', acname: 'Bitte auswählen'}
