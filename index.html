@@ -38,87 +38,6 @@
 		<![endif]-->
 		<div id="page" class="row">
 			<center><a href="https://www.adventisten.at/"><img src="ui/images/sta-logo.png" height="120"></a></center>
-            <div class="col-md-6">
-				<h3 class="center bold" style="margin-top:25px; margin-bottom:25px">Ausfüllhilfe Online-Überweisung</h3>
-				<p>
-					Hier kannst du dir durch Ausfüllen des Zehntenzettels automatisch den Betrag und den Verwendungszweck der Überweisung erstellen lassen.
-					So lässt sich dann deine Überweisung genau den verschiedenen Verwendungen zuordnen.
-				</p>
-				<p>
-                    Ist dieses Formular sicher? <a style="cursor:pointer;" ng-click="secureInfo = !secureInfo">Hier erfährst du mehr!</a>
-				</p>
-                <p ng-show="secureInfo">
-                    Wichtig: Die eingegebenen Daten werden nirgends gespeichert, sie dienen rein zur Erstellung des Verwendungszwecks.
-					Alle Berechnungen passieren lokal in deinem Browser, es wird nichts im Internet zu einem Server übertragen.
-					Du kannst das gerne ausprobieren, indem du nach dem Laden der Seite deine Netzwerkverbindung trennst, alles funktioniert weiterhin.
-				</p>
-				<p class="bold">
-					Nach dem Ausfüllen werden hier alle notwendigen Überweisungsdaten angezeigt.
-					Du kannst dann ganz einfach den Bereich (e.g. IBAN, Verwendungszweck), welchen du in das Online-Überweisungsformular übernehmen möchtest markieren und mit Kopieren & Einfügen übertragen.
-				</p>
-				<table style="width:100%;">
-					<tr>
-						<td>Ortsgemeinde: <span style="cursor:pointer;" onclick="alert('Du kommst direkt zu den Kontodaten deiner Gemeinde, wenn du sie in das Adressfeld des Browsers angibst: e.g. \nhttps://geben.adventisten.at/Hallein');">&#9432;</span></td>
-						<td>
-							<select ng-options="option.name for option in accoutdata.availableOptions track by option.id"
-											ng-model="accoutdata.selectedOption" ng-change="changeLink()"></select>
-						</td>
-					</tr>
-					<tr ng-if="!(accoutdata.selectedOption.id=='empty')">
-						<td>Emfänger:</td>
-						<td>{{accoutdata.selectedOption.acname}}</td>
-					</tr>
-					<tr ng-if="!(accoutdata.selectedOption.id=='empty')">
-						<td>IBAN:</td>
-						<td>{{accoutdata.selectedOption.id}}</td>
-					</tr>
-					<tr>
-						<td>Betrag: <span style="cursor:pointer;" onclick="alert('Die Summe wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt.');">&#9432;</span></td>
-						<td>
-							€ <input type="text" readonly="1" value="{{sum()}}" class="euro" style="background-color:#fff" />
-						</td>
-					</tr>
-					<tr>
-						<td style="vertical-align: top">
-							Verwendungszweck:
-							<span style="cursor:pointer;" onclick="alert('Der Verwendungszweck wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt.');">&#9432;</span>
-						</td>
-						<td><textarea style="width:100%;height:70px;" readonly="1">{{subject()}}</textarea></td>
-					</tr>
-				</table>
-				<br />
-				<div class="paper">
-					<h4 style="margin-top:0" class="center bold">
-						Empfohlener Gabenschlüssel für geplantes Geben:
-					</h4>
-					<br />
-					<table style="margin: 0 auto;">
-						<tr>
-							<td>II.</td>
-							<td>Österreich:</td>
-							<td class="right">30%</td>
-							<td class="right bold">{{ptbl2()}}</td>
-						</tr>
-						<tr>
-							<td>III.</td>
-							<td>Weltmission:</td>
-							<td class="right">20%</td>
-							<td class="right bold">{{ptbl3()}}</td>
-						</tr>
-						<tr>
-							<td>IV.</td>
-							<td>Lokale Gemeinde:</td>
-							<td class="right">50%</td>
-							<td class="right bold">{{ptbl4()}}</td>
-						</tr>
-						<tr ng-show="ptbl2() || ptbl3() || ptbl4()">
-							<td colspan="3" class="right bold">Dein Schlüssel</td>
-							<td class="center bold">&#x2934;</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<br />
 			<div class="col-md-6 paper">
 				<h4 class="center bold">
 					Maleachi 3,10
@@ -260,6 +179,87 @@
 						</td>
 					</tr>
 				</table>
+			</div>
+			<br />
+	            <div class="col-md-6">
+				<h3 class="center bold" style="margin-top:25px; margin-bottom:25px">Ausfüllhilfe Online-Überweisung</h3>
+				<p>
+					Hier kannst du dir durch Ausfüllen des Zehntenzettels automatisch den Betrag und den Verwendungszweck der Überweisung erstellen lassen.
+					So lässt sich dann deine Überweisung genau den verschiedenen Verwendungen zuordnen.
+				</p>
+				<p>
+                    Ist dieses Formular sicher? <a style="cursor:pointer;" ng-click="secureInfo = !secureInfo">Hier erfährst du mehr!</a>
+				</p>
+                <p ng-show="secureInfo">
+                    Wichtig: Die eingegebenen Daten werden nirgends gespeichert, sie dienen rein zur Erstellung des Verwendungszwecks.
+					Alle Berechnungen passieren lokal in deinem Browser, es wird nichts im Internet zu einem Server übertragen.
+					Du kannst das gerne ausprobieren, indem du nach dem Laden der Seite deine Netzwerkverbindung trennst, alles funktioniert weiterhin.
+				</p>
+				<p class="bold">
+					Nach dem Ausfüllen werden hier alle notwendigen Überweisungsdaten angezeigt.
+					Du kannst dann ganz einfach den Bereich (e.g. IBAN, Verwendungszweck), welchen du in das Online-Überweisungsformular übernehmen möchtest markieren und mit Kopieren & Einfügen übertragen.
+				</p>
+				<table style="width:100%;">
+					<tr>
+						<td>Ortsgemeinde: <span style="cursor:pointer;" onclick="alert('Du kommst direkt zu den Kontodaten deiner Gemeinde, wenn du sie in das Adressfeld des Browsers angibst: e.g. \nhttps://geben.adventisten.at/Hallein');">&#9432;</span></td>
+						<td>
+							<select ng-options="option.name for option in accoutdata.availableOptions track by option.id"
+											ng-model="accoutdata.selectedOption" ng-change="changeLink()"></select>
+						</td>
+					</tr>
+					<tr ng-if="!(accoutdata.selectedOption.id=='empty')">
+						<td>Emfänger:</td>
+						<td>{{accoutdata.selectedOption.acname}}</td>
+					</tr>
+					<tr ng-if="!(accoutdata.selectedOption.id=='empty')">
+						<td>IBAN:</td>
+						<td>{{accoutdata.selectedOption.id}}</td>
+					</tr>
+					<tr>
+						<td>Betrag: <span style="cursor:pointer;" onclick="alert('Die Summe wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt.');">&#9432;</span></td>
+						<td>
+							€ <input type="text" readonly="1" value="{{sum()}}" class="euro" style="background-color:#fff" />
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top">
+							Verwendungszweck:
+							<span style="cursor:pointer;" onclick="alert('Der Verwendungszweck wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt.');">&#9432;</span>
+						</td>
+						<td><textarea style="width:100%;height:70px;" readonly="1">{{subject()}}</textarea></td>
+					</tr>
+				</table>
+				<br />
+				<div class="paper">
+					<h4 style="margin-top:0" class="center bold">
+						Empfohlener Gabenschlüssel für geplantes Geben:
+					</h4>
+					<br />
+					<table style="margin: 0 auto;">
+						<tr>
+							<td>II.</td>
+							<td>Österreich:</td>
+							<td class="right">30%</td>
+							<td class="right bold">{{ptbl2()}}</td>
+						</tr>
+						<tr>
+							<td>III.</td>
+							<td>Weltmission:</td>
+							<td class="right">20%</td>
+							<td class="right bold">{{ptbl3()}}</td>
+						</tr>
+						<tr>
+							<td>IV.</td>
+							<td>Lokale Gemeinde:</td>
+							<td class="right">50%</td>
+							<td class="right bold">{{ptbl4()}}</td>
+						</tr>
+						<tr ng-show="ptbl2() || ptbl3() || ptbl4()">
+							<td colspan="3" class="right bold">Dein Schlüssel</td>
+							<td class="center bold">&#x2934;</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 			<div class="col-md-12" style="padding:25px;">
 				<p class="center">
