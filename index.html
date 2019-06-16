@@ -5,12 +5,10 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<title>Zehntenzettel - Ausfüllhilfe Online-Überweisung</title>
 		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="ui/css/normalize.css">
-		<link rel="stylesheet" href="ui/css/main.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link rel="stylesheet" href="ui/css/tithe.css">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
 		<base href="/">
         <script type="text/javascript"> <!--
 			function UnCryptMailto( s )
@@ -36,8 +34,13 @@
 		<!--[if lt IE 8]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
+        <div class="d-flex flex-column flex-md-row justify-content-center border-bottom shadow-sm bgstacolor">
+            <a href="https://www.adventisten.at/" target="_blank"><img src="ui/images/sta-logo.png" class="img-fluid" style="max-height: 100px;"></a>
+        </div>
 		<div id="page" class="row">
-			<center><a href="https://www.adventisten.at/" target="_blank"><img src="ui/images/sta-logo.png" height="120"></a></center>
+            <div class="col-md-12">
+                <h3 class="bold border-bottom">Zehntenzettel Online</h3>
+            </div>
 			<div class="col-md-6 paper">
 				<h4 class="center bold">
 					Maleachi 3,10
@@ -181,13 +184,12 @@
 				</table>
 			</div>
 	            <div class="col-md-6">
-				<h3 class="center bold" style="margin-top:25px; margin-bottom:25px">Zehntenzettel Online</h3>
 				<p>
 					Lass dir durch Ausfüllen des Zehntenzettels automatisch den Betrag und den Verwendungszweck der Überweisung erstellen.
 					So lässt sich dann deine Überweisung genau den verschiedenen Zwecken zuordnen.
 				</p>
 				<p>
-                    Ist dieses Formular sicher? <a style="cursor:pointer;" ng-click="secureInfo = !secureInfo">Hier erfährst du mehr!</a>
+                    Ist dieses Formular sicher? <a style="cursor:pointer; text-decoration: underline;" ng-click="secureInfo = !secureInfo">Hier erfährst du mehr!</a>
 				</p>
                 <p ng-show="secureInfo">
                     Wichtig: Die eingegebenen Daten werden nirgends gespeichert, sie dienen rein zur Erstellung des Verwendungszwecks.
@@ -217,7 +219,7 @@
 					<tr>
 						<td>Betrag: <span style="cursor:pointer;" onclick="alert('Die Summe wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt.');">&#9432;</span></td>
 						<td>
-							€ <input type="text" readonly="1" value="{{sum()}}" class="euro" style="background-color:#fff" />
+							€ <input type="text" onclick="this.select();document.execCommand('copy');" readonly="1" value="{{sum()}}" class="euro" style="background-color:#fff" />
 						</td>
 					</tr>
 					<tr>
@@ -225,7 +227,7 @@
 							Verwendungszweck:
 							<span style="cursor:pointer;" onclick="alert('Der Verwendungszweck wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt.');">&#9432;</span>
 						</td>
-						<td><textarea style="width:100%;height:70px;" readonly="1">{{subject()}}</textarea></td>
+						<td><textarea style="width:100%;height:70px;" onclick="this.select();document.execCommand('copy');" readonly="1">{{subject()}}</textarea></td>
 					</tr>
 				</table>
 				<br />
@@ -263,18 +265,11 @@
 			<div class="col-md-12" style="padding:25px;">
 				<p class="center">
 					<a href="#">
-						<span class="glyphicon glyphicon-home"></span>
 						by Tobi Ka
 					</a>
 					<span class="separator">&middot;</span>
-					<a href="#">
-						<span class="glyphicon glyphicon-thumbs-up"></span>
-						Like it
-					</a>
-					<span class="separator">&middot;</span>
 					<a href="javascript:linkTo_UnCryptMailto('nbjmup;jogpAupbl/ef');">
-						<span class="glyphicon glyphicon-envelope"></span>
-						info [at] toak [dot] de
+						contact me
 					</a>
 				</p>
 			</div>
