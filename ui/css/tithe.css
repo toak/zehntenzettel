@@ -2,6 +2,10 @@ html {
   font-size: 14px;
 }
 
+div {
+  margin-bottom: 15px;
+}
+
 #page {
   margin: 20px auto;
   max-width:800px;
@@ -14,7 +18,7 @@ html {
   padding: 20px;
 }
 table th, table td {
-  padding: 2px 5px;
+  padding: 2px 5px 2px 0px;
 }
 td.bleft {
   border-left:1px solid #000;
@@ -27,12 +31,20 @@ td.bspace {
 }
 input {
   border: 0;
-  background-color: #ddff99;
+}
+input.dotted {
   border-bottom: 1px dotted #000;
+  background-color: #ddff99;
 }
 input.euro {
   text-align: right;
   width: 50px;
+  border-bottom: 1px dotted #000;
+  background-color: #ddff99;
+}
+textarea {
+  border: 0;
+  resize: none;
 }
 .center {
   text-align:center;
@@ -42,7 +54,8 @@ input.euro {
 }
 .bgstacolor {
   background-color: #2f557f;
+  padding: 15px;
 }
 a {
-    text-decoration: underline;
+  text-decoration: underline;
 }
