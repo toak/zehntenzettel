@@ -198,7 +198,7 @@
 				</p>
 				<p>
 					Nach dem Ausfüllen werden hier alle notwendigen Überweisungsdaten angezeigt.
-					Du kannst dann ganz einfach die Daten (IBAN, Zweck, etc) markieren und mit Kopieren &amp; Einfügen in die Überweisung übertragen.
+					Du kannst dann ganz einfach die Daten (IBAN, Zweck, etc) auswählen, diese werden automatisch kopiert, sodass du sie bei einer Überweisung einfügen kannst.
 				</p>
 				<table style="width:100%;">
 					<tr>
@@ -211,19 +211,19 @@
 					<tr ng-if="!(accoutdata.selectedOption.id=='empty')">
 						<td>Empfänger:</td>
                         <td>
-							 <input type="text" onclick="this.select();document.execCommand('copy');" readonly="1" value="{{accoutdata.selectedOption.acname}}" />
+							 <input type="text" onclick="this.select();document.execCommand('copy');" readonly="1" value="{{accoutdata.selectedOption.acname}}" class="output" />
 						</td>
 					</tr>
 					<tr ng-if="!(accoutdata.selectedOption.id=='empty')">
 						<td>IBAN:</td>
 						<td>
-							 <input type="text" onclick="this.select();document.execCommand('copy');" readonly="1" value="{{accoutdata.selectedOption.id}}" />
+							 <input type="text" onclick="this.select();document.execCommand('copy');" readonly="1" value="{{accoutdata.selectedOption.id}}" class="output" />
 						</td>
 					</tr>
 					<tr>
 						<td>Betrag: <span style="cursor:pointer;" onclick="alert('Die Summe wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt.');">&#9432;</span></td>
 						<td>
-							 <input type="text" onclick="this.select();document.execCommand('copy');" readonly="1" value="{{sum()}}" />
+							 <input type="text" onclick="this.select();document.execCommand('copy');" readonly="1" value="{{sum()}}" class="output" />
 						</td>
 					</tr>
 					<tr>
