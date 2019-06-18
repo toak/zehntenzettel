@@ -98,6 +98,7 @@ angular.module('tithe.controllers', [])
 				subt = subt + $scope.lg_custom2_text + " " + $scope.lg_custom2 + ",";
             if (subt.length>0)
                 subt = subt.substring(0, subt.length-1);
+            document.getElementById("subject").style.height = document.getElementById("subject").scrollHeight + 'px';
 			return subt;
 		}
         $scope.weburl = $location.absUrl().split("/").pop();
