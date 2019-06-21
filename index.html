@@ -185,7 +185,7 @@
 			</div>
 	            <div class="col-md-6">
 				<p>
-					Lass dir beim Ausfüllen des Formulars automatisch den Betrag und den Verwendungszweck für eine Überweisung erstellen.
+					Lass dir beim Ausfüllen des Formulars automatisch Betrag und Verwendungszweck für eine Überweisung erstellen.
 					So lässt sich dann deine Überweisung genau den verschiedenen Zwecken zuordnen.
 				</p>
 				<p>
@@ -198,7 +198,7 @@
 				</p>
 				<p>
 					Nach dem Ausfüllen werden hier alle notwendigen Überweisungsdaten angezeigt.
-					Du kannst dann ganz einfach die Daten (IBAN, Zweck, etc) auswählen, diese werden automatisch kopiert, sodass du sie bei einer Überweisung oder einem Dauerauftrag einfügen kannst.
+					Du kannst dann einfach die Daten (IBAN, Zweck, etc) auswählen, diese werden automatisch in die Zwischenablage kopiert, du musst sie nur noch bei deiner Überweisung oder deinem Dauerauftrag einfügen.
 				</p>
 				<table style="width:100%;">
 					<tr>
@@ -242,26 +242,26 @@
 					<br />
 					<table style="margin: 0 auto;">
 						<tr>
-							<td>II.</td>
+							<td class="right">II.</td>
 							<td>Österreich</td>
 							<td class="right">30% &nbsp;</td>
 							<td class="right bold">{{ptbl2()}}</td>
 						</tr>
 						<tr>
-							<td>III.</td>
+							<td class="right">III.</td>
 							<td>Weltmission</td>
 							<td class="right">20% &nbsp;</td>
 							<td class="right bold">{{ptbl3()}}</td>
 						</tr>
 						<tr>
-							<td>IV.</td>
+							<td class="right">IV.</td>
 							<td>Lokale Gemeinde &nbsp;</td>
 							<td class="right">50% &nbsp;</td>
 							<td class="right bold">{{ptbl4()}}</td>
 						</tr>
 						<tr ng-show="ptbl2() || ptbl3() || ptbl4()">
 							<td colspan="3" class="right bold">Dein Schlüssel</td>
-							<td class="center bold"> &#11205;</td>
+							<td class="center bold"> <img src="ui/images/Black_Arrow_Up.svg" height="10px"></td>
 						</tr>
 					</table>
 				</div>
