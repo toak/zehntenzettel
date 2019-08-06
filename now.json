@@ -4,6 +4,7 @@
   "name": "zehntenzettel",
   "routes": [
     { "src": "/ui/(.*)", "dest": "/ui/$1" },
+    { "src": "/downloads/(.*)", "dest": "/downloads/$1" },
     { "src": "/(.*)", "dest": "/" }
   ]
 }
