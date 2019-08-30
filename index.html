@@ -199,7 +199,7 @@
 				</p>
 				<p>
 					Nach dem Ausfüllen werden hier alle notwendigen Überweisungsdaten angezeigt.
-					Du kannst dann einfach die Daten (IBAN, Zweck, etc) auswählen, diese werden automatisch in die Zwischenablage kopiert, du musst sie nur noch bei deiner Überweisung oder deinem Dauerauftrag einfügen.
+					Du kannst dann einfach die Daten (IBAN, Zweck, etc) auswählen, diese werden automatisch in die Zwischenablage kopiert, du musst sie nur noch bei deiner Überweisung oder deinem Dauerauftrag einfügen. <b>NEU:</b> Verwende den QR-Code am Ende der Seite.
 				</p>
 				<table style="width:100%;">
 					<tr>
@@ -268,7 +268,10 @@
 				</div>
 			</div>
 			<div class="col-md-12" style="padding:25px;">
-				<p class="center">
+				<p class="center" ng-if="!(accoutdata.selectedOption.id=='empty') && (sum())">QR-Code für SEPA Überweisungen:<br/>
+					<img src="https://epc-qr.eu/?bname={{accoutdata.selectedOption.acname}}&iban={{accoutdata.selectedOption.id}}&euro={{sum()}}&info={{subject()}}">
+				</p>
+                <p class="center">
 					<a href="#">
 						by Tobi Ka
 					</a>
