@@ -63,6 +63,9 @@ angular.module('tithe.controllers', [])
 		}
 		$scope.sum = function() {
 			return $scope.z*1 + $scope.sumbl234()*1;
+        }
+        $scope.qrcode = function() {
+			return 'https://epc-qr.eu/?bname=' + $scope.accoutdata.selectedOption.acname + '&iban=' + $scope.accoutdata.selectedOption.id + '&euro=' + $scope.sum()*1 + '&info=' + $scope.subject();
 		}
 		$scope.subject = function() {
 			var subt = "";

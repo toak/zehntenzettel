@@ -269,7 +269,7 @@
 			</div>
 			<div class="col-md-12" style="padding:25px;">
 				<p class="center" ng-cloak="" ng-if="!(accoutdata.selectedOption.id=='empty') && (sum())">QR-Code für SEPA Überweisungen:<br/>
-					<img ng-cloak="" src="https://epc-qr.eu/?bname={{accoutdata.selectedOption.acname}}&iban={{accoutdata.selectedOption.id}}&euro={{sum()}}&info={{subject()}}">
+					<img ng-src="{{qrcode()}}">
 				</p>
                 <p class="center">
 					<a href="#">
