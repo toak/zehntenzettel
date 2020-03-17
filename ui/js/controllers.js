@@ -11,6 +11,7 @@ angular.module('tithe.controllers', [])
 		$scope.poe_custom = "";
 		$scope.ssg = "";
 		$scope.ssg13 = "";
+		$scope.afm = "";
 		$scope.wm_custom = "";
 		$scope.gemk = "";
 		$scope.lg_custom1 = "";
@@ -43,7 +44,7 @@ angular.module('tithe.controllers', [])
 				return Math.round(p) + "%";
 		}
 		$scope.bl3 = function() {
-			return $scope.ssg*1 + $scope.ssg13*1 + $scope.wm_custom*1;
+			return $scope.ssg*1 + $scope.ssg13*1 + $scope.afm*1 + $scope.wm_custom*1;
 		}
 		$scope.ptbl3 = function() {
 			var p = $scope.bl3()/$scope.sumbl234()*100;
@@ -91,6 +92,8 @@ angular.module('tithe.controllers', [])
 				subt = subt + "SSG " + $scope.ssg + ",";
 			if ($scope.ssg13 > 0)
 				subt = subt + " 13SSG " + $scope.ssg13 + ",";
+			if ($scope.afm > 0)
+				subt = subt + " AFM " + $scope.afm + ",";
 			if ($scope.wm_custom > 0)
 				subt = subt + $scope.wm_custom_text + " " + $scope.wm_custom + ",";
 			if ($scope.gemk > 0)
