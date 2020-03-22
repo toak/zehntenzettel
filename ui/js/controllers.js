@@ -124,6 +124,15 @@ angular.module('tithe.controllers', [])
         $scope.changeLink = function() {
             var link = $scope.accoutdata.selectedOption.name;
             $location.url('/'+link);
+            if (link=="Übrige-Gemeinden") {
+                alert("Lokale Gemeindegaben sind mit dieser Auswahl nicht möglich!");
+                $scope.local = "line-through";
+                $scope.gemk = 0;
+                $scope.lg_custom1 = 0;
+                $scope.lg_custom2 = 0;
+            } else {
+                $scope.local = "none";
+            }
         }
         $scope.$watch(function() {
             return $location.path();
