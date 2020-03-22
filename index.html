@@ -45,25 +45,25 @@
 					</tr>
 					<tr>
 						<td></td>
-						<td>Projekte allgemein</td>
+						<td><span tooltip="Diese Gaben dienen verschiedensten Projekten und Zwecken, für die keine Zehntengelder verwendet werden können." flow="right">Projekte allgemein</span></td>
 						<td class="right"><input type="text" ng-model="poe" ng-keyup="poesum" size="4" class="euro" valid-number></td>
 						<td class="bleft"></td>
 					</tr>
                     <tr>
 						<td></td>
-						<td>Evangelisation</td>
+						<td><span tooltip="Diese Gelder werden zur Unterstützung von österreichweiten und lokalen evangelistischen Projekten verwendet." flow="right">Evangelisation</span></td>
 						<td class="right"><input type="text" ng-model="ev" ng-keyup="poesum" size="4" class="euro" valid-number></td>
 						<td class="bleft"></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td>Kapellenfonds</td>
+						<td><span tooltip="Diese Gaben dienen der Errichtung und dem Ewerb von neuen Gebäuden für Gemeinden." flow="right">Kapellenfonds</span></td>
 						<td class="right"><input type="text" ng-model="kf" ng-keyup="poesum" size="4" class="euro" valid-number></td>
 						<td class="bleft"></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td>Schule Bogenhofen</td>
+						<td><span tooltip="Unterstützung für unsere Schule in Bogenhofen." flow="right">Schule Bogenhofen</span></td>
 						<td class="right"><input type="text" ng-model="scho" ng-keyup="poesum" size="4" class="euro" valid-number></td>
 						<td class="bleft right">
 							 <input type="text" name="poefld" ng-blur="calcpoe()" size="4" class="euro" valid-number />
@@ -71,19 +71,19 @@
 					</tr>
 					<tr>
 						<td></td>
-						<td>Gemeindeschule</td>
+						<td><span tooltip="Gaben für bestehende und neue Volks- und Mittelschulen in Österreich." flow="right">Gemeindeschule</span></td>
 						<td class="right"><input type="text" ng-model="gems" ng-keyup="poesum" size="4" class="euro" valid-number></td>
 						<td class="bleft"></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td>Gesundheitsdienste</td>
+						<td><span tooltip="Diese Gelder machen Initativen und Projekte im Gesundheitsbereich (LLG) möglich." flow="right">Gesundheitsdienste</span></td>
 						<td class="right"><input type="text" ng-model="llg" ng-keyup="poesum" size="4" class="euro" valid-number></td>
 						<td class="bleft"></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td>Hope Media</td>
+						<td><span tooltip="Unterstützung für die Medienarbeit in Österreich." flow="right">Hope Media</span></td>
 						<td class="right"><input type="text" ng-model="hm" ng-keyup="poesum" size="4" class="euro" valid-number></td>
 						<td class="bleft"></td>
 					</tr>
@@ -104,19 +104,19 @@
 					</tr>
 					<tr>
 						<td></td>
-						<td>Sabbatschulgaben</td>
+						<td><span tooltip="Sabbatschulgaben dienen der Finanzierung von Missionsprojekten auf der ganzen Welt. Über die Missionvideos wird von solchen Projekten berichtet." flow="right">Sabbatschulgaben</span></td>
 						<td></td>
 						<td class="right"> <input type="text" ng-model="ssg" size="4" class="euro" valid-number></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td>13. Sabbatschulgaben</td>
+						<td><span tooltip="Diese Gaben sind für spezielle Projekte bestimmt, die jedes Quartal aus einer anderen Division ausgewählt werden." flow="right">13. Sabbatschulgaben</span></td>
 						<td></td>
 						<td class="right"> <input type="text" ng-model="ssg13" size="4" class="euro" valid-number></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td>Adventist Volunteer Service</td>
+						<td><span tooltip="Über AVS können junge Menschen als Freiwillige im Ausland eine adventistische Organisation unterstützen (z.B. Student Missionaries in Bogenhofen)." flow="right">Adventist Volunteer Service</span></td>
 						<td></td>
 						<td class="right"> <input type="text" ng-model="afm" size="4" class="euro" valid-number></td>
 					</tr>
@@ -193,7 +193,7 @@
 				</p>
 				<table style="width:100%;">
 					<tr>
-						<td>Gemeinde: <span style="cursor:pointer;" onclick="alert('Du kommst direkt zu den Kontodaten deiner Gemeinde, wenn du sie in das Adressfeld des Browsers angibst: e.g. \nhttps://geben.adventisten.at/Hallein');">&#9432;</span></td>
+						<td>Gemeinde: <span style="cursor:pointer;" tooltip="Du kommst direkt zu den Kontodaten deiner Gemeinde, wenn du sie in das Adressfeld des Browsers angibst: z.B. geben.adventisten.at/Hallein" flow="right">&#9432;</span></td>
 						<td>
 							<select ng-options="option.name for option in accoutdata.availableOptions track by option.id"
 											ng-model="accoutdata.selectedOption" ng-change="changeLink()"></select>
@@ -212,7 +212,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>Betrag: <span style="cursor:pointer;" onclick="alert('Die Summe wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt.');">&#9432;</span></td>
+						<td>Betrag: <span style="cursor:pointer;" tooltip="Die Summe wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt." flow="right">&#9432;</span></td>
 						<td>
 							 <input type="text" onclick="this.select();document.execCommand('copy');" readonly="1" value="{{sum()}}" class="output" />
 						</td>
@@ -220,7 +220,7 @@
 					<tr>
 						<td style="vertical-align: top">
 							Zweck:
-							<span style="cursor:pointer;" onclick="alert('Der Verwendungszweck wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt.');">&#9432;</span>
+							<span style="cursor:pointer;" tooltip="Der Verwendungszweck wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt." flow="right">&#9432;</span>
 						</td>
 						<td><textarea id="subject" style="width:100%;height:21px;" onclick="this.select();document.execCommand('copy');" readonly="1">{{subject()}}</textarea></td>
 					</tr>
