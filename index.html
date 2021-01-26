@@ -258,8 +258,9 @@
 				</div>
 			</div>
 			<div class="col-md-12" style="padding:25px;">
-				<p class="center" ng-if="!(accoutdata.selectedOption.id=='empty') && (sum())">QR-Code für SEPA Überweisungen:<br/>
-					<img src="https://epc-qr.eu/?bname={{accoutdata.selectedOption.acname}}&iban={{accoutdata.selectedOption.id}}&euro={{sum()}}&info={{subject()}}">
+                <p class="center" ng-if="!(accoutdata.selectedOption.id=='empty') && (sum())"><b>QR-Code für SEPA Überweisungen:</b><br/>
+                    <img src="https://qrcode.tec-it.com/API/QRCode?data=BCD%0a002%0a1%0aSCT%0a%0a{{accoutdata.selectedOption.acname}}%0a{{accoutdata.selectedOption.id}}%0aEUR{{sum()}}%0a%0a{{ref()}}%0a{{text()}}&color=%232f557f&size=small&quietzone=2" />
+					<!-- <img src="https://epc-qr.eu/?bname={{accoutdata.selectedOption.acname}}&iban={{accoutdata.selectedOption.id}}&euro={{sum()}}&info={{subject()}}"> -->
 				</p>
                 <p class="center">
 					<a href="#">
