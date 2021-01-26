@@ -116,8 +116,8 @@
 					</tr>
 					<tr>
 						<td></td>
-						<td><span tooltip="Mit den gesammelten Geldern werden weltweit missionarische Projekte unterstützt, die vor allem in Gebieten durchgeführt werden, die mit der Adventbotschaft noch nicht oder kaum erreicht sind." flow="right">Gebetstagsgaben</span></td>
-						<td><input type="hidden" ng-model="wm_sosa_text" ng-init="wm_sosa_text='GTG'"></td>
+						<td><span tooltip="Sondersammlung für AWR International, das weltweit Radioprogramme betreibt, um Menschen mit der Adventbotschaft bekannt zu machen." flow="right">Adventist World Radio</span></td>
+						<td><input type="hidden" ng-model="wm_sosa_text" ng-init="wm_sosa_text='AWR'"></td>
 						<td class="right"> <input type="text" ng-model="wm_sosa" size="4" class="euro" valid-number></td>
 					</tr>
 					<tr>
@@ -174,19 +174,11 @@
 	            <div class="col-md-6">
 				<p>
 					Lass dir beim Ausfüllen des Formulars automatisch Betrag und Verwendungszweck für eine Überweisung erstellen.
-					So lässt sich dann deine Überweisung genau den verschiedenen Zwecken zuordnen.
+					So lässt sich dann deine Überweisung genau den verschiedenen Zwecken zuordnen. Die eingegebenen Daten werden nirgends gespeichert, sie dienen rein zur Erstellung der Überweisungsdaten.
 				</p>
                 <p>
                     Brauchst du Hilfe? <a style="cursor:pointer; text-decoration: underline;" target="_blank" href="/downloads/Anleitung.pdf">Anleitung herunterladen</a>
                 </p>
-				<p>
-                    Ist dieses Formular sicher? <a style="cursor:pointer; text-decoration: underline;" ng-click="secureInfo = !secureInfo" href="#">Hier erfährst du mehr</a>
-				</p>
-                <p ng-show="secureInfo">
-                    Wichtig: Die eingegebenen Daten werden nirgends gespeichert, sie dienen rein zur Erstellung des Verwendungszwecks.
-					Alle Berechnungen passieren lokal in deinem Browser, es wird nichts über das Internet an einen Server übertragen.
-					Du kannst das gerne ausprobieren, indem du nach dem Laden der Seite deine Netzwerkverbindung trennst, alles funktioniert weiterhin.
-				</p>
 				<p>
 					Nach dem Ausfüllen werden hier alle notwendigen Überweisungsdaten angezeigt.
 					Du kannst dann einfach die Daten (IBAN, Zweck, etc) auswählen, diese werden automatisch in die Zwischenablage kopiert, du musst sie nur noch bei deiner Überweisung oder deinem Dauerauftrag einfügen. Alternativ kannst du unten den QR-Code in deiner Banking-App scannen.
