@@ -23,232 +23,236 @@
             <div class="col-md-12">
                 <center><h3 class="bold">Überweisungsformular für Zehnten und Gaben</h3></center>
             </div>
-			<div class="col-md-6 paper">
-				<h4 class="center bold">
-					Maleachi 3,10
-				</h4>
-				<table style="width:100%;">
-					<tr>
-						<td class="bold right">I.</td>
-						<td class="bold">Zehnten</td>
-						<td></td>
-						<td class="right"> <input type="text" ng-model="z" size="4" class="euro" valid-number></td>
-					</tr>
-					<tr>
-						<td style="height: 10px"></td>
-					</tr>
-					<tr>
-						<td class="bold right">II.</td>
-						<td><span class="bold">Österreich</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span tooltip="Diese Gaben dienen verschiedensten Projekten und Zwecken, für die keine Zehntengelder verwendet werden können." flow="right">Projekte allgemein</span></td>
-						<td class="right"><input type="text" ng-model="poe" ng-keyup="poesum" size="4" class="euro" valid-number></td>
-						<td class="bleft"></td>
-					</tr>
-                    <tr>
-						<td></td>
-						<td><span tooltip="Diese Gelder werden zur Unterstützung von österreichweiten und lokalen evangelistischen Projekten verwendet." flow="right">Evangelisation</span></td>
-						<td class="right"><input type="text" ng-model="ev" ng-keyup="poesum" size="4" class="euro" valid-number></td>
-						<td class="bleft"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span tooltip="Diese Gaben dienen der Errichtung und dem Ewerb von neuen Gebäuden für Gemeinden." flow="right">Kapellenfonds</span></td>
-						<td class="right"><input type="text" ng-model="kf" ng-keyup="poesum" size="4" class="euro" valid-number></td>
-						<td class="bleft"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span tooltip="Unterstützung für das Seminar Schloss Bogenhofen." flow="right">Schule Bogenhofen</span></td>
-						<td class="right"><input type="text" ng-model="scho" ng-keyup="poesum" size="4" class="euro" valid-number></td>
-						<td class="bleft right">
-							 <input type="text" name="poefld" ng-blur="calcpoe()" size="4" class="euro" valid-number />
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span tooltip="Gaben für bestehende und neue Volks- und Mittelschulen in Österreich." flow="right">Gemeindeschulen</span></td>
-						<td class="right"><input type="text" ng-model="gems" ng-keyup="poesum" size="4" class="euro" valid-number></td>
-						<td class="bleft"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span tooltip="Diese Gelder machen Initativen und Projekte im Gesundheitsbereich (LLG) möglich." flow="right">Gesundheitsdienste</span></td>
-						<td class="right"><input type="text" ng-model="llg" ng-keyup="poesum" size="4" class="euro" valid-number></td>
-						<td class="bleft"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span tooltip="Unterstützung für die missionarische Medienarbeit in Österreich." flow="right">Medien</span></td>
-						<td class="right"><input type="text" ng-model="hm" ng-keyup="poesum" size="4" class="euro" valid-number></td>
-						<td class="bleft"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><input type="text" ng-model="poe_custom_text" class="dotted"></td>
-						<td class="right"><input type="text" ng-model="poe_custom" ng-keyup="poesum" size="4" class="euro" valid-number></td>
-						<td class="bleft"></td>
-					</tr>
-					<tr>
-						<td style="height: 10px"></td>
-					</tr>
-					<tr>
-						<td width="1" class="bold right">III.</td>
-						<td class="bold">Weltmission</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span tooltip="Sabbatschulgaben dienen der Finanzierung von Missionsprojekten auf der ganzen Welt. Über die Missionvideos wird von solchen Projekten berichtet." flow="right">Sabbatschulgaben</span></td>
-						<td></td>
-						<td class="right"> <input type="text" ng-model="ssg" size="4" class="euro" valid-number></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span tooltip="Diese Gaben sind für spezielle Projekte bestimmt, die jedes Quartal aus einer anderen Division ausgewählt werden." flow="right">13. Sabbatschulgaben</span></td>
-						<td></td>
-						<td class="right"> <input type="text" ng-model="ssg13" size="4" class="euro" valid-number></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span tooltip="Sondersammlung für Hope Channel International, der weltweit Fernsehprogramme betreibt, um Menschen mit der Adventbotschaft bekannt zu machen." flow="right">Hope Channel International</span></td>
-						<td><input type="hidden" ng-model="wm_sosa_text" ng-init="wm_sosa_text='HTV'"></td>
-						<td class="right"> <input type="text" ng-model="wm_sosa" size="4" class="euro" valid-number></td>
-					</tr>
-					<!--
-                    <tr>
-						<td></td>
-						<td><span tooltip="Sondersammlung im Rahmen der Gebetswoche für die weltweite Mission unserer Kirche." flow="right">Gebetstagsgaben</span></td>
-						<td><input type="hidden" ng-model="wm_sosa_text" ng-init="wm_sosa_text='GTG'"></td>
-						<td class="right"> <input type="text" ng-model="wm_sosa" size="4" class="euro" valid-number></td>
-					</tr>
-                    <tr>
-						<td></td>
-						<td><span tooltip="Sondersammlung für die weltweite Mission unserer Kirche." flow="right">Weltmission</span></td>
-						<td><input type="hidden" ng-model="wm_sosa_text" ng-init="wm_sosa_text='WM'"></td>
-						<td class="right"> <input type="text" ng-model="wm_sosa" size="4" class="euro" valid-number></td>
-					</tr>
-                    <tr>
-						<td></td>
-						<td><span tooltip="Sondersammlung für den Katastrophenfonds für ADRAs internationale Katastrophen-, Hunger- und Nothilfe." flow="right">ADRA Katastrophenfonds</span></td>
-						<td><input type="hidden" ng-model="wm_sosa_text" ng-init="wm_sosa_text='KATA'"></td>
-						<td class="right"> <input type="text" ng-model="wm_sosa" size="4" class="euro" valid-number></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span tooltip="Sammlung für Adventist Volunteer Service, ein Programm das jungen Menschen ermöglicht, ein Jahr im Ausland zu dienen." flow="right">Adventist Volunteer Service</span></td>
-						<td><input type="hidden" ng-model="wm_sosa2_text" ng-init="wm_sosa2_text='AFM'"></td>
-						<td class="right"> <input type="text" ng-model="wm_sosa2" size="4" class="euro" valid-number></td>
-					</tr> 
-					<tr>
-						<td></td>
-						<td><span tooltip="Sondersammlung für AWR International, das weltweit Radioprogramme betreibt, um Menschen mit der Adventbotschaft bekannt zu machen." flow="right">Adventist World Radio</span></td>
-						<td><input type="hidden" ng-model="wm_sosa_text" ng-init="wm_sosa_text='AWR'"></td>
-						<td class="right"> <input type="text" ng-model="wm_sosa" size="4" class="euro" valid-number></td>
-					</tr>
-					-->
-					<tr>
-						<td></td>
-						<td><input type="text" ng-model="wm_custom_text" class="dotted"></td>
-						<td></td>
-						<td class="right"> <input type="text" ng-model="wm_custom" size="4" class="euro" valid-number></td>
-					</tr>
-					<tr>
-						<td style="height: 10px"></td>
-					</tr>
-					<tr style="display:{{local}}">
-						<td class="bold right">IV.</td>
-						<td class="bold">Lokale Gemeinde</td>
-						<td></td>
-					</tr>
-					<tr style="display:{{local}}">
-						<td></td>
-						<td><span tooltip="Die Gaben für die lokale Gemeinde dienen zur Finanzierung des Gemeindelokals und aller Aktivitäten der Gemeinde." flow="right">Gemeinde allgemein</span></td>
-						<td></td>
-						<td class="right"> <input type="text" ng-model="gemk" size="4" class="euro" valid-number></td>
-					</tr>
-					<tr style="display:{{local}}">
-						<td></td>
-						<td><input type="text" ng-model="lg_custom1_text" class="dotted"></td>
-						<td></td>
-						<td class="right"> <input type="text" ng-model="lg_custom1" size="4" class="euro" valid-number></td>
-					</tr>
-					<tr style="display:{{local}}">
-						<td></td>
-						<td><input type="text" ng-model="lg_custom2_text" class="dotted"></td>
-						<td></td>
-						<td class="right"> <input type="text" ng-model="lg_custom2" size="4" class="euro" valid-number></td>
-					</tr>
-					<tr style="display:{{local}}">
-						<td style="height: 10px"></td>
-					</tr>
-					<tr>
-						<td style="height: 10px"></td>
-						<td></td>
-						<td></td>
-						<td style="border-bottom:1px solid #000"></td>
-					</tr>
-					<tr>
-						<td style="height: 40px"></td>
-						<td></td>
-						<td></td>
-						<td class="right" style="border-bottom:5px double #000" onclick="alert('Bitte Posten in die Felder oben eintragen!\nDas ist ein Summenfeld.');">
-							 <input type="text" readonly="1" value="{{sum()}}" class="euro" />
-						</td>
-					</tr>
-				</table>
+			<div class="col-md-6">
+				<div class="paper">
+					<h4 class="center bold">
+						Maleachi 3,10
+					</h4>
+					<table style="width:100%;">
+						<tr>
+							<td class="bold right">I.</td>
+							<td class="bold">Zehnten</td>
+							<td></td>
+							<td class="right"> <input type="text" ng-model="z" size="4" class="euro" valid-number></td>
+						</tr>
+						<tr>
+							<td style="height: 10px"></td>
+						</tr>
+						<tr>
+							<td class="bold right">II.</td>
+							<td><span class="bold">Österreich</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><span tooltip="Diese Gaben dienen verschiedensten Projekten und Zwecken, für die keine Zehntengelder verwendet werden können." flow="right">Projekte allgemein</span></td>
+							<td class="right"><input type="text" ng-model="poe" ng-keyup="poesum" size="4" class="euro" valid-number></td>
+							<td class="bleft"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><span tooltip="Diese Gelder werden zur Unterstützung von österreichweiten und lokalen evangelistischen Projekten verwendet." flow="right">Evangelisation</span></td>
+							<td class="right"><input type="text" ng-model="ev" ng-keyup="poesum" size="4" class="euro" valid-number></td>
+							<td class="bleft"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><span tooltip="Diese Gaben dienen der Errichtung und dem Ewerb von neuen Gebäuden für Gemeinden." flow="right">Kapellenfonds</span></td>
+							<td class="right"><input type="text" ng-model="kf" ng-keyup="poesum" size="4" class="euro" valid-number></td>
+							<td class="bleft"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><span tooltip="Unterstützung für das Seminar Schloss Bogenhofen." flow="right">Schule Bogenhofen</span></td>
+							<td class="right"><input type="text" ng-model="scho" ng-keyup="poesum" size="4" class="euro" valid-number></td>
+							<td class="bleft right">
+								<input type="text" name="poefld" ng-blur="calcpoe()" size="4" class="euro" valid-number />
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><span tooltip="Gaben für bestehende und neue Volks- und Mittelschulen in Österreich." flow="right">Gemeindeschulen</span></td>
+							<td class="right"><input type="text" ng-model="gems" ng-keyup="poesum" size="4" class="euro" valid-number></td>
+							<td class="bleft"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><span tooltip="Diese Gelder machen Initativen und Projekte im Gesundheitsbereich (LLG) möglich." flow="right">Gesundheitsdienste</span></td>
+							<td class="right"><input type="text" ng-model="llg" ng-keyup="poesum" size="4" class="euro" valid-number></td>
+							<td class="bleft"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><span tooltip="Unterstützung für die missionarische Medienarbeit in Österreich." flow="right">Medien</span></td>
+							<td class="right"><input type="text" ng-model="hm" ng-keyup="poesum" size="4" class="euro" valid-number></td>
+							<td class="bleft"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><input type="text" ng-model="poe_custom_text" class="dotted"></td>
+							<td class="right"><input type="text" ng-model="poe_custom" ng-keyup="poesum" size="4" class="euro" valid-number></td>
+							<td class="bleft"></td>
+						</tr>
+						<tr>
+							<td style="height: 10px"></td>
+						</tr>
+						<tr>
+							<td width="1" class="bold right">III.</td>
+							<td class="bold">Weltmission</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><span tooltip="Sabbatschulgaben dienen der Finanzierung von Missionsprojekten auf der ganzen Welt. Über die Missionvideos wird von solchen Projekten berichtet." flow="right">Sabbatschulgaben</span></td>
+							<td></td>
+							<td class="right"> <input type="text" ng-model="ssg" size="4" class="euro" valid-number></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><span tooltip="Diese Gaben sind für spezielle Projekte bestimmt, die jedes Quartal aus einer anderen Division ausgewählt werden." flow="right">13. Sabbatschulgaben</span></td>
+							<td></td>
+							<td class="right"> <input type="text" ng-model="ssg13" size="4" class="euro" valid-number></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><span tooltip="Sondersammlung für Hope Channel International, der weltweit Fernsehprogramme betreibt, um Menschen mit der Adventbotschaft bekannt zu machen." flow="right">Hope Channel International</span></td>
+							<td><input type="hidden" ng-model="wm_sosa_text" ng-init="wm_sosa_text='HTV'"></td>
+							<td class="right"> <input type="text" ng-model="wm_sosa" size="4" class="euro" valid-number></td>
+						</tr>
+						<!--
+						<tr>
+							<td></td>
+							<td><span tooltip="Sondersammlung im Rahmen der Gebetswoche für die weltweite Mission unserer Kirche." flow="right">Gebetstagsgaben</span></td>
+							<td><input type="hidden" ng-model="wm_sosa_text" ng-init="wm_sosa_text='GTG'"></td>
+							<td class="right"> <input type="text" ng-model="wm_sosa" size="4" class="euro" valid-number></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><span tooltip="Sondersammlung für die weltweite Mission unserer Kirche." flow="right">Weltmission</span></td>
+							<td><input type="hidden" ng-model="wm_sosa_text" ng-init="wm_sosa_text='WM'"></td>
+							<td class="right"> <input type="text" ng-model="wm_sosa" size="4" class="euro" valid-number></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><span tooltip="Sondersammlung für den Katastrophenfonds für ADRAs internationale Katastrophen-, Hunger- und Nothilfe." flow="right">ADRA Katastrophenfonds</span></td>
+							<td><input type="hidden" ng-model="wm_sosa_text" ng-init="wm_sosa_text='KATA'"></td>
+							<td class="right"> <input type="text" ng-model="wm_sosa" size="4" class="euro" valid-number></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><span tooltip="Sammlung für Adventist Volunteer Service, ein Programm das jungen Menschen ermöglicht, ein Jahr im Ausland zu dienen." flow="right">Adventist Volunteer Service</span></td>
+							<td><input type="hidden" ng-model="wm_sosa2_text" ng-init="wm_sosa2_text='AFM'"></td>
+							<td class="right"> <input type="text" ng-model="wm_sosa2" size="4" class="euro" valid-number></td>
+						</tr> 
+						<tr>
+							<td></td>
+							<td><span tooltip="Sondersammlung für AWR International, das weltweit Radioprogramme betreibt, um Menschen mit der Adventbotschaft bekannt zu machen." flow="right">Adventist World Radio</span></td>
+							<td><input type="hidden" ng-model="wm_sosa_text" ng-init="wm_sosa_text='AWR'"></td>
+							<td class="right"> <input type="text" ng-model="wm_sosa" size="4" class="euro" valid-number></td>
+						</tr>
+						-->
+						<tr>
+							<td></td>
+							<td><input type="text" ng-model="wm_custom_text" class="dotted"></td>
+							<td></td>
+							<td class="right"> <input type="text" ng-model="wm_custom" size="4" class="euro" valid-number></td>
+						</tr>
+						<tr>
+							<td style="height: 10px"></td>
+						</tr>
+						<tr style="display:{{local}}">
+							<td class="bold right">IV.</td>
+							<td class="bold">Lokale Gemeinde</td>
+							<td></td>
+						</tr>
+						<tr style="display:{{local}}">
+							<td></td>
+							<td><span tooltip="Die Gaben für die lokale Gemeinde dienen zur Finanzierung des Gemeindelokals und aller Aktivitäten der Gemeinde." flow="right">Gemeinde allgemein</span></td>
+							<td></td>
+							<td class="right"> <input type="text" ng-model="gemk" size="4" class="euro" valid-number></td>
+						</tr>
+						<tr style="display:{{local}}">
+							<td></td>
+							<td><input type="text" ng-model="lg_custom1_text" class="dotted"></td>
+							<td></td>
+							<td class="right"> <input type="text" ng-model="lg_custom1" size="4" class="euro" valid-number></td>
+						</tr>
+						<tr style="display:{{local}}">
+							<td></td>
+							<td><input type="text" ng-model="lg_custom2_text" class="dotted"></td>
+							<td></td>
+							<td class="right"> <input type="text" ng-model="lg_custom2" size="4" class="euro" valid-number></td>
+						</tr>
+						<tr style="display:{{local}}">
+							<td style="height: 10px"></td>
+						</tr>
+						<tr>
+							<td style="height: 10px"></td>
+							<td></td>
+							<td></td>
+							<td style="border-bottom:1px solid #000"></td>
+						</tr>
+						<tr>
+							<td style="height: 40px"></td>
+							<td></td>
+							<td></td>
+							<td class="right" style="border-bottom:5px double #000" onclick="alert('Bitte Posten in die Felder oben eintragen!\nDas ist ein Summenfeld.');">
+								<input type="text" readonly="1" value="{{sum()}}" class="euro" />
+							</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 	            <div class="col-md-6">
-				<p>
-					Lass dir beim Ausfüllen des Formulars automatisch Betrag und Verwendungszweck für eine Überweisung erstellen.
-					So lässt sich dann deine Überweisung genau den verschiedenen Zwecken zuordnen. Die eingegebenen Daten werden nirgends gespeichert, sie dienen rein zur Erstellung der Überweisungsdaten.
-				</p>
-                <p>
-                    Brauchst du Hilfe? <a style="cursor:pointer; text-decoration: underline;" target="_blank" href="/downloads/Anleitung.pdf">Anleitung herunterladen</a>
-                </p>
-				<p>
-					Nach dem Ausfüllen werden hier alle notwendigen Überweisungsdaten angezeigt.
-					Du kannst dann einfach die Daten (IBAN, Zweck, etc) auswählen, diese werden automatisch in die Zwischenablage kopiert, du musst sie nur noch bei deiner Überweisung oder deinem Dauerauftrag einfügen. Alternativ kannst du unten den QR-Code in deiner Banking-App scannen.
-				</p>
-				<table style="width:100%;">
-					<tr>
-						<td>Gemeinde: <span style="cursor:pointer;" tooltip="Du kommst direkt zu den Kontodaten deiner Gemeinde, wenn du sie in das Adressfeld des Browsers angibst: z.B. geben.adventisten.at/Hallein" flow="right">&#9432;</span></td>
-						<td>
-							<select ng-options="option.name for option in accoutdata.availableOptions track by option.id"
-											ng-model="accoutdata.selectedOption" ng-change="changeLink()"></select>
-						</td>
-					</tr>
-					<tr ng-if="!(accoutdata.selectedOption.id=='empty')">
-						<td>Empfänger:</td>
-                        <td>
-							 <input type="text" onclick="this.select();document.execCommand('copy');" readonly="1" value="{{accoutdata.selectedOption.acname}}" class="output" />
-						</td>
-					</tr>
-					<tr ng-if="!(accoutdata.selectedOption.id=='empty')">
-						<td>IBAN:</td>
-						<td>
-							 <input type="text" onclick="this.select();document.execCommand('copy');" readonly="1" value="{{accoutdata.selectedOption.id}}" class="output" />
-						</td>
-					</tr>
-					<tr>
-						<td>Betrag: <span style="cursor:pointer;" tooltip="Die Summe wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt." flow="right">&#9432;</span></td>
-						<td>
-							 <input type="text" onclick="this.select();document.execCommand('copy');" readonly="1" value="{{sum()}}" class="output" />
-						</td>
-					</tr>
-					<tr>
-						<td style="vertical-align: top">
-							Zweck:
-							<span style="cursor:pointer;" tooltip="Der Verwendungszweck wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt." flow="right">&#9432;</span>
-						</td>
-						<td><textarea id="subject" style="width:100%;height:21px;" onclick="this.select();document.execCommand('copy');" readonly="1">{{subject()}}</textarea></td>
-					</tr>
-				</table>
+					<div class="text">
+					<p>
+						Lass dir beim Ausfüllen des Formulars automatisch Betrag und Verwendungszweck für eine Überweisung erstellen.
+						So lässt sich dann deine Überweisung genau den verschiedenen Zwecken zuordnen. Die eingegebenen Daten werden nirgends gespeichert, sie dienen rein zur Erstellung der Überweisungsdaten.
+					</p>
+					<p>
+						Brauchst du Hilfe? <a style="cursor:pointer; text-decoration: underline;" target="_blank" href="/downloads/Anleitung.pdf">Anleitung herunterladen</a>
+					</p>
+					<p>
+						Nach dem Ausfüllen werden hier alle notwendigen Überweisungsdaten angezeigt.
+						Du kannst dann einfach die Daten (IBAN, Zweck, etc) auswählen, diese werden automatisch in die Zwischenablage kopiert, du musst sie nur noch bei deiner Überweisung oder deinem Dauerauftrag einfügen. Alternativ kannst du unten den QR-Code in deiner Banking-App scannen.
+					</p>
+					<table style="width:100%;">
+						<tr>
+							<td>Gemeinde: <span style="cursor:pointer;" tooltip="Du kommst direkt zu den Kontodaten deiner Gemeinde, wenn du sie in das Adressfeld des Browsers angibst: z.B. geben.adventisten.at/Hallein" flow="right">&#9432;</span></td>
+							<td>
+								<select ng-options="option.name for option in accoutdata.availableOptions track by option.id"
+												ng-model="accoutdata.selectedOption" ng-change="changeLink()"></select>
+							</td>
+						</tr>
+						<tr ng-if="!(accoutdata.selectedOption.id=='empty')">
+							<td>Empfänger:</td>
+							<td>
+								<input type="text" onclick="this.select();document.execCommand('copy');" readonly="1" value="{{accoutdata.selectedOption.acname}}" class="output" />
+							</td>
+						</tr>
+						<tr ng-if="!(accoutdata.selectedOption.id=='empty')">
+							<td>IBAN:</td>
+							<td>
+								<input type="text" onclick="this.select();document.execCommand('copy');" readonly="1" value="{{accoutdata.selectedOption.id}}" class="output" />
+							</td>
+						</tr>
+						<tr>
+							<td>Betrag: <span style="cursor:pointer;" tooltip="Die Summe wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt." flow="right">&#9432;</span></td>
+							<td>
+								<input type="text" onclick="this.select();document.execCommand('copy');" readonly="1" value="{{sum()}}" class="output" />
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align: top">
+								Zweck:
+								<span style="cursor:pointer;" tooltip="Der Verwendungszweck wird automatisch nach dem Ausfüllen des Zehntenzettels angezeigt." flow="right">&#9432;</span>
+							</td>
+							<td><textarea id="subject" style="width:100%;height:21px;" onclick="this.select();document.execCommand('copy');" readonly="1">{{subject()}}</textarea></td>
+						</tr>
+					</table>
+				</div>
 				<br />
 				<div class="paper">
 					<h4 style="margin-top:0" class="center bold">
@@ -283,7 +287,7 @@
 			</div>
 			<div class="col-md-12" style="padding:25px;">
                 <p class="center" ng-if="!(accoutdata.selectedOption.id=='empty') && (sum())"><b>QR-Code für SEPA Überweisungen:</b><br/>
-                    <img src="https://qrcode.tec-it.com/API/QRCode?data=BCD%0a002%0a1%0aSCT%0a%0a{{accoutdata.selectedOption.acname}}%0a{{accoutdata.selectedOption.id}}%0aEUR{{sum()}}%0a%0a{{ref()}}%0a{{text()}}&color=%232f557f&size=small&quietzone=2" />
+                    <img src="https://qrcode.tec-it.com/API/QRCode?data=BCD%0a002%0a1%0aSCT%0a%0a{{accoutdata.selectedOption.acname}}%0a{{accoutdata.selectedOption.id}}%0aEUR{{sum()}}%0a%0a{{ref()}}%0a{{text()}}&color=%232f557f&backcolor=%23fbf9f3&size=small&quietzone=2" />
 					<!-- <img src="https://epc-qr.eu/?bname={{accoutdata.selectedOption.acname}}&iban={{accoutdata.selectedOption.id}}&euro={{sum()}}&info={{subject()}}"> -->
 				</p>
                 <p class="center">

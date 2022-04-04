@@ -2,20 +2,31 @@ html {
   font-size: 14px;
 }
 
+body {
+  background-color: #fbf9f3;
+}
+
 div {
   margin-bottom: 15px;
 }
 
 #page {
   margin: 20px auto;
-  max-width:800px;
+  max-width:900px;
 }
 .paper {
-  background-color: #ddff99;
+  background-color: #fff;
+  padding: 25px;
+  border: 1px solid #2f557f;
+}
+.text {
   padding: 15px;
 }
 #result {
   padding: 20px;
+}
+h3 {
+  font-size:2rem;
 }
 table th, table td {
   padding: 2px 5px 2px 0px;
@@ -34,20 +45,24 @@ input {
 }
 input.dotted {
   border-bottom: 1px dotted #000;
-  background-color: #ddff99;
+  background-color: #fff;
 }
 input.euro {
   text-align: right;
   width: 50px;
   border-bottom: 1px dotted #000;
-  background-color: #ddff99;
+  background-color: #fff;
 }
 input.output {
   width: 100%;
+  background-color: #fbf9f3;
+  border-bottom: 1px dotted #000;
 }
 textarea {
   border: 0;
   resize: none;
+  background-color: #fbf9f3;
+  border-bottom: 1px dotted #000;
 }
 .center {
   text-align:center;
