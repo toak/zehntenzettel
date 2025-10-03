@@ -1,9 +1,12 @@
+@import url(https://www.adventisten.at/include/fonts.css);
+
 html {
   font-size: 14px;
 }
 
 body {
   background-color: #fcfcfc;
+  font-family: "Sarabun", Arial, sans-serif;
 }
 
 div {
