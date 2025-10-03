@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: #fbf9f3;
+  background-color: #fcfcfc;
 }
 
 div {
@@ -17,7 +17,7 @@ div {
 .paper {
   background-color: #fff;
   padding: 25px;
-  border: 1px solid #2f557f;
+  border: 1px solid #535353;
 }
 .text {
   padding: 15px;
@@ -32,7 +32,7 @@ table th, table td {
   padding: 2px 5px 2px 0px;
 }
 td.bleft {
-  border-left:1px solid #000;
+  border-left:1px solid #535353;
 }
 td.bspace {
   padding-bottom: 50px;
@@ -44,25 +44,25 @@ input {
   border: 0;
 }
 input.dotted {
-  border-bottom: 1px dotted #000;
+  border-bottom: 1px dotted #535353;
   background-color: #fff;
 }
 input.euro {
   text-align: right;
   width: 50px;
-  border-bottom: 1px dotted #000;
+  border-bottom: 1px dotted #535353;
   background-color: #fff;
 }
 input.output {
   width: 100%;
-  background-color: #fbf9f3;
-  border-bottom: 1px dotted #000;
+  background-color: #fff;
+  border-bottom: 1px dotted #535353;
 }
 textarea {
   border: 0;
   resize: none;
-  background-color: #fbf9f3;
-  border-bottom: 1px dotted #000;
+  background-color: #fff;
+  border-bottom: 1px dotted #535353;
 }
 .center {
   text-align:center;
@@ -71,12 +71,12 @@ textarea {
   text-align:right;
 }
 .bgstacolor {
-  background-color: #2f557f;
+  background-color: #1ac2d4;
   padding: 15px;
 }
 a {
   text-decoration: underline;
-  color: #2f557f;
+  color: #1ac2d4;
 }
 
 
@@ -111,7 +111,7 @@ a {
   padding: 1ch 1.5ch;
   border-radius: .3ch;
   box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
-  background: #333;
+  background: #535353;
   color: #fff;
   z-index: 1000; /* absurdity 2 */
 }
@@ -131,7 +131,7 @@ a {
 [tooltip][flow^="up"]::before {
   bottom: 100%;
   border-bottom-width: 0;
-  border-top-color: #333;
+  border-top-color: #535353;
 }
 [tooltip]:not([flow])::after,
 [tooltip][flow^="up"]::after {
@@ -149,7 +149,7 @@ a {
 [tooltip][flow^="down"]::before {
   top: 100%;
   border-top-width: 0;
-  border-bottom-color: #333;
+  border-bottom-color: #535353;
 }
 [tooltip][flow^="down"]::after {
   top: calc(100% + 5px);
@@ -164,7 +164,7 @@ a {
 [tooltip][flow^="left"]::before {
   top: 50%;
   border-right-width: 0;
-  border-left-color: #333;
+  border-left-color: #535353;
   left: calc(0em - 5px);
   transform: translate(-.5em, -50%);
 }
@@ -178,7 +178,7 @@ a {
 [tooltip][flow^="right"]::before {
   top: 50%;
   border-left-width: 0;
-  border-right-color: #333;
+  border-right-color: #535353;
   right: calc(0em - 5px);
   transform: translate(.5em, -50%);
 }
